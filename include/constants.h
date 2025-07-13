@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 
-enum TileType
+enum TileEnum
 {
 	EMPTY,
 	WALL,
@@ -9,17 +9,17 @@ enum TileType
 	CORRIDOR,
 	EDGE
 };
-
+/*
 struct TileMap
 {
-	static const std::map<TileType, char> tileMap;
+	static const std::map<TileEnum, char> tileMap;
 };
 
-const std::map<TileType, char> TileMap::tileMap = 
+const std::map<TileEnum, char> TileMap::tileMap
 	{	
 		{EMPTY, ' '},
 		{WALL, 'O'},
 		{DOOR, '+'},
 		{CORRIDOR, '#'},
 		{EDGE, '='}
-	};
+	};*/
