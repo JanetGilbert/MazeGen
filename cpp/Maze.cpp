@@ -93,8 +93,9 @@ void Maze::GenerateMaze(int sizeX, int sizeY, int minRoomSize, int maxRoomSize)
 	Reset(sizeX, sizeY);
 
 	// Add rooms.
-	int numRooms{ 4 };
-	//if (numRooms < 4) numRooms = 4;
+	int numRooms{ sizeX * sizeY / (maxRoomSize * maxRoomSize * 2)};
+	cout << "numRooms " << numRooms << std::endl;
+	numRooms = std::min(12, std::max(4, numRooms));
 
 	cout << "Num rooms:" << numRooms;
 
