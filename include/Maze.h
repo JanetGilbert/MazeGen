@@ -19,6 +19,6 @@ private:
 public:
 	void Reset(int sizeX, int sizeY);
 	void GenerateStringArray();
-	const std::string & GetLine(int y);
+	const std::string GetLine(int y);
 };
 

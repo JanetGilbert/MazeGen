@@ -17,24 +17,28 @@ void Maze::Reset(int sizeX, int sizeY)
 	m_sizeY = sizeY;
 
 	m_tiles[0].fill(EDGE);
-	m_tiles[m_sizeY - 1].fill(EDGE);
-	for (int y{ 1 }; y < m_sizeY - 1; ++y)
+	m_tiles[m_sizeX - 1].fill(EDGE);
+	for (int x{ 1 }; x < m_sizeX - 1; ++x)
 	{
-		m_tiles[y].fill(EMPTY);
-		
+		m_tiles[x].fill(EMPTY);
+		m_tiles[x][0] = EDGE;
+		m_tiles[x][m_sizeY-1] = EDGE;
 	}
 }
 
 void Maze::GenerateStringArray()
 {
-	for (int y{ 0 }; y < m_sizeY; ++y)
+	for (int x{ 0 }; x < m_sizeX; ++x)
 	{
-		m_textTiles[y].resize(m_sizeX, ' ');
-		for (int x{ 0 }; x < m_sizeX; ++x)
+		if (m_textTiles[x].length() != m_sizeY)
+		{
+			m_textTiles[x].resize(m_sizeY, tileMap.at(EMPTY));
+		}
+
+		for (int y{ 0 }; y < m_sizeY; ++y)
 		{
 			try {
-			//	std::cout << "x:" << x << " y:" << y << m_textTiles[y] << std::endl;
-				m_textTiles[y][x] = tileMap.at(m_tiles[y][x]);
+				m_textTiles[x][y] = tileMap.at(m_tiles[x][y]);
 			}
 			catch (const std::out_of_range& ex)
 			{
@@ -44,7 +48,13 @@ void Maze::GenerateStringArray()
 	}
 }
 
-const std::string & Maze::GetLine(int y)
+const std::string Maze::GetLine(int y)
 {
-	return m_textTiles[y];
+	std::string str(m_sizeX, tileMap.at(EMPTY));
+	for (int x{ 0 }; x < m_sizeX; ++x)
+	{
+		str[x] = m_textTiles[x][y];
+	}
+	
+	return str;
 }

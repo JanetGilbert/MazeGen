@@ -12,6 +12,8 @@ void DoLoop()
     int sizeY = 25;
     std::string settings = "window: size=" + std::to_string(sizeX) + "x" +
         std::to_string(sizeY) + " ; window: alt - functions = true";
+
+    std::cout << settings << std::endl;
     maze.Reset(sizeX, sizeY);
     maze.GenerateStringArray();
 
@@ -20,8 +22,7 @@ void DoLoop()
     terminal_clear();
      for (int y{0}; y < sizeY; ++y)
      {
-         const std::string & line = maze.GetLine(y);
-         std::cout << line << std::endl;
+         const std::string line = maze.GetLine(y);
          terminal_print(0, y, line.c_str());
      }
 
