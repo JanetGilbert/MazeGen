@@ -9,17 +9,7 @@ enum TileEnum
 	CORRIDOR,
 	EDGE
 };
-/*
-struct TileMap
-{
-	static const std::map<TileEnum, char> tileMap;
-};
+constexpr int maxMazeSize = 200;
 
-const std::map<TileEnum, char> TileMap::tileMap
-	{	
-		{EMPTY, ' '},
-		{WALL, 'O'},
-		{DOOR, '+'},
-		{CORRIDOR, '#'},
-		{EDGE, '='}
-	};*/
+
+typedef std::array<std::array<TileEnum, maxMazeSize>, maxMazeSize> TileGrid;

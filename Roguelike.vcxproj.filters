@@ -30,6 +30,9 @@
     <ClInclude Include="include\Room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\MazePrint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp\Corridor.cpp">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cpp\Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cpp\MazePrint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

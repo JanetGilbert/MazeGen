@@ -2,14 +2,6 @@
 #include "../include/Constants.h"
 #include <iostream>
 
-const std::map<TileEnum, char> tileMap
-{
-	{EMPTY, ' '},
-	{WALL, 'O'},
-	{DOOR, '+'},
-	{CORRIDOR, '#'},
-	{EDGE, '='}
-};
 
 void Maze::Reset(int sizeX, int sizeY)
 {
@@ -28,33 +20,10 @@ void Maze::Reset(int sizeX, int sizeY)
 
 void Maze::GenerateStringArray()
 {
-	for (int x{ 0 }; x < m_sizeX; ++x)
-	{
-		if (m_textTiles[x].length() != m_sizeY)
-		{
-			m_textTiles[x].resize(m_sizeY, tileMap.at(EMPTY));
-		}
-
-		for (int y{ 0 }; y < m_sizeY; ++y)
-		{
-			try {
-				m_textTiles[x][y] = tileMap.at(m_tiles[x][y]);
-			}
-			catch (const std::out_of_range& ex)
-			{
-				std::cout << "Tile does not exist" << std::endl;
-			}
-		}
-	}
+	m_print.MakePrintable(m_sizeX, m_sizeY, m_tiles);
 }
 
 const std::string Maze::GetLine(int y)
 {
-	std::string str(m_sizeX, tileMap.at(EMPTY));
-	for (int x{ 0 }; x < m_sizeX; ++x)
-	{
-		str[x] = m_textTiles[x][y];
-	}
-	
-	return str;
+	return m_print.GetLine(y);
 }
