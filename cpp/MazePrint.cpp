@@ -8,7 +8,8 @@ const std::map<TileEnum, char> tileMap
 	{WALL, 'O'},
 	{DOOR, '+'},
 	{CORRIDOR, '#'},
-	{EDGE, '='}
+	{EDGE, '='},
+	{FLOOR, '.'}
 };
 
 

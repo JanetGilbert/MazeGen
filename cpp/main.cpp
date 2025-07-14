@@ -14,8 +14,8 @@ void DoLoop()
         std::to_string(sizeY) + " ; window: alt - functions = true";
 
     std::cout << settings << std::endl;
-    maze.Reset(sizeX, sizeY);
-    maze.GenerateStringArray();
+    maze.GenerateMaze(sizeX, sizeY, 5, 10);
+    maze.ConvertMazeToStringArray();
 
     terminal_open();
     terminal_set(settings.c_str());

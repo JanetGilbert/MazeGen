@@ -7,7 +7,8 @@ enum TileEnum
 	WALL,
 	DOOR,
 	CORRIDOR,
-	EDGE
+	EDGE,
+	FLOOR
 };
 constexpr int maxMazeSize = 200;
 
